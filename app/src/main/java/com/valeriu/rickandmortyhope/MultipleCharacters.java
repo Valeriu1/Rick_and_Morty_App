@@ -2,6 +2,7 @@ package com.valeriu.rickandmortyhope;
 
 import android.os.Bundle;
 
+import androidx.constraintlayout.motion.widget.MotionLayout;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.GridLayoutManager;
@@ -19,6 +20,8 @@ public class MultipleCharacters extends Fragment {
     private EpisodeViewModel episodeViewModel;
     private RecyclerView recyclerView;
     private CharacterAdapter characterAdapter = CharacterAdapter.getInstance();
+    private MotionLayout motionLayout;
+
 
     private View view;
 
@@ -54,7 +57,7 @@ public class MultipleCharacters extends Fragment {
         episodeViewModel = new ViewModelProvider(this).get(EpisodeViewModel.class);
 
         recyclerView = view.findViewById(R.id.recyclerView);
-        recyclerView.hasFixedSize();
+//        recyclerView.hasFixedSize();
         GridLayoutManager gridLayoutManager = new GridLayoutManager(this.getContext(), 2);
 //        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView.setLayoutManager(gridLayoutManager);

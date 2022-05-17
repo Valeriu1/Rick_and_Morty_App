@@ -12,6 +12,7 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
+import androidx.constraintlayout.motion.widget.MotionLayout;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.transition.TransitionManager;
@@ -25,10 +26,10 @@ public class CharacterAdapter extends RecyclerView.Adapter<CharacterAdapter.View
     private ArrayList<Character> characters;
     private OnClickListener listener;
     private Context context;
+    private MotionLayout motionLayout;
     private static CharacterAdapter instance;
     public static int mExpandedPosition = -1;
     public static int previousExpandedPosition = -1;
-
 
 
     public CharacterAdapter() {
@@ -36,7 +37,6 @@ public class CharacterAdapter extends RecyclerView.Adapter<CharacterAdapter.View
         characters = new ArrayList<>();
 
     }
-
 
 
     public void setContext(Context context) {
@@ -49,9 +49,10 @@ public class CharacterAdapter extends RecyclerView.Adapter<CharacterAdapter.View
         }
         return instance;
     }
-    public void addCharacterToList(Character character){
 
-        if (!characters.contains(character)){
+    public void addCharacterToList(Character character) {
+
+        if (!characters.contains(character)) {
             characters.add(character);
         }
     }
@@ -100,32 +101,29 @@ public class CharacterAdapter extends RecyclerView.Adapter<CharacterAdapter.View
         holder.species.setText(characters.get(position).getSpecies());
         holder.id.setText(String.valueOf(characters.get(position).getId()));
         Glide.with(context).load(characters.get(position).getImage()).into(holder.imageButton);
-        if (characters.get(position).getStatus().equalsIgnoreCase("alive")){
+        if (characters.get(position).getStatus().equalsIgnoreCase("alive")) {
             holder.imageButton.setBackground(context.getDrawable(R.drawable.alivemultchar));
             holder.constraintLayout.setBackgroundColor(context.getColor(R.color.green));
-        } else if (characters.get(position).getStatus().equalsIgnoreCase("dead")){
+        } else if (characters.get(position).getStatus().equalsIgnoreCase("dead")) {
             holder.imageButton.setBackground(context.getDrawable(R.drawable.deadmultchar));
             holder.constraintLayout.setBackgroundColor(context.getColor(R.color.red));
-
-
         } else {
             holder.imageButton.setBackground(context.getDrawable(R.drawable.unknownmultchar));
             holder.constraintLayout.setBackgroundColor(context.getColor(R.color.unknown));
 
         }
 
-        final boolean isExpanded = position==mExpandedPosition;
-        holder.constraintLayout.setVisibility(isExpanded?View.VISIBLE:View.GONE);
+        final boolean isExpanded = position == mExpandedPosition;
+        holder.constraintLayout.setVisibility(isExpanded ? View.VISIBLE : View.GONE);
         holder.itemView.setActivated(isExpanded);
         holder.imageButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mExpandedPosition = isExpanded ? -1:holder.getAdapterPosition();
+
+                mExpandedPosition = isExpanded ? -1 : holder.getAdapterPosition();
                 notifyItemChanged(holder.getAdapterPosition());
             }
         });
-
-
 
 
     }
@@ -148,6 +146,8 @@ public class CharacterAdapter extends RecyclerView.Adapter<CharacterAdapter.View
         private final ConstraintLayout constraintLayout;
 
 
+
+
         ViewHolder(View itemview) {
             super(itemview);
 
@@ -159,7 +159,6 @@ public class CharacterAdapter extends RecyclerView.Adapter<CharacterAdapter.View
 
 
 //            itemview.setOnClickListener(view -> {
-//
 //            });
 
         }
@@ -168,7 +167,6 @@ public class CharacterAdapter extends RecyclerView.Adapter<CharacterAdapter.View
     public interface OnClickListener {
         void onClick(Character character);
     }
-
 
 
 }
