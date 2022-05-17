@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MotionScene 
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:motion="http://schemas.android.com/apk/res-auto">
+
+    <Transition
+        motion:constraintSetEnd="@+id/end"
+        motion:constraintSetStart="@id/start"
+        motion:duration="300"
+        motion:autoTransition="jumpToStart">
+       <KeyFrameSet>
+           <KeyAttribute
+               motion:motionTarget="@+id/cardView"
+               motion:framePosition="40"
+               android:alpha="0.8"
+               android:scaleX="1.1"
+               android:scaleY="1.1"
+               android:rotation="0"
+               android:rotationY="0" />
+           <KeyAttribute
+               motion:motionTarget="@+id/cardViewForInfo"
+               motion:framePosition="1"
+               android:alpha="1"
+               android:scaleX="0.8"
+               android:scaleY="0.8"
+               android:rotation="5"
+               android:rotationX="5"
+               android:rotationY="0" />
+       </KeyFrameSet>
+    </Transition>
+
+
+</MotionScene>
