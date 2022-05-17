@@ -21,7 +21,8 @@ public class Character {
         this.location = location;
         this.episodes = episodes;
     }
-    public Character( String name,String image) {
+
+    public Character(String name, String image) {
         this.id = 1;
         this.name = name;
         this.status = "";

@@ -52,23 +52,15 @@ public class MultipleCharacters extends Fragment {
         // Inflate the layout for this fragment
          view = inflater.inflate(R.layout.fragment_multiple_characters, container, false);
 
-
         viewModel = new ViewModelProvider(this).get(CharacterViewModel.class);
         episodeViewModel = new ViewModelProvider(this).get(EpisodeViewModel.class);
 
         recyclerView = view.findViewById(R.id.recyclerView);
-//        recyclerView.hasFixedSize();
+        recyclerView.hasFixedSize();
         GridLayoutManager gridLayoutManager = new GridLayoutManager(this.getContext(), 2);
-//        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView.setLayoutManager(gridLayoutManager);
 
         characterAdapter.setContext(getContext());
-//        viewModel.getSearchedCharacter().observe(getViewLifecycleOwner(),character -> {
-//
-//
-//            characterAdapter.addCharacterToList(character);
-//        });
-
         recyclerView.setAdapter(characterAdapter);
         return view;
     }

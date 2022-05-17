@@ -14,8 +14,6 @@ public class ServiceGenerator {
                     .addConverterFactory(GsonConverterFactory.create())
                     .build()
                     .create(RickandMortyApi.class);
-
-
         }
         return rickandMortyApi;
     }

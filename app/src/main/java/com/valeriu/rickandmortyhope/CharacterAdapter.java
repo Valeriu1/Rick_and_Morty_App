@@ -68,35 +68,6 @@ public class CharacterAdapter extends RecyclerView.Adapter<CharacterAdapter.View
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
 
-//        final boolean isExpanded = position ==mExpandedPosition;
-//        holder.cardView.setVisibility(isExpanded?View.VISIBLE:View.GONE);
-//        holder.itemView.setActivated(isExpanded);
-//
-//        if (isExpanded)
-//            previousExpandedPosition = holder.getAdapterPosition();
-//
-//        holder.itemView.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                mExpandedPosition = isExpanded ? -1:holder.getAdapterPosition();
-//                notifyItemChanged(previousExpandedPosition);
-//                notifyItemChanged(holder.getAdapterPosition());
-//            }
-//        });
-
-//        final boolean isExpanded = position==mExpandedPosition;
-//        holder.cardView.setVisibility(isExpanded?View.VISIBLE:View.GONE);
-//        holder.itemView.setActivated(isExpanded);
-//        holder.itemView.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                mExpandedPosition = isExpanded ? -1:holder.getAdapterPosition();
-//
-//                TransitionManager.beginDelayedTransition(recyclerView);
-//                notifyItemChanged(holder.getAdapterPosition());
-//            }
-//        });
-
         holder.name.setText(characters.get(position).getName());
         holder.species.setText(characters.get(position).getSpecies());
         holder.id.setText(String.valueOf(characters.get(position).getId()));
@@ -146,8 +117,6 @@ public class CharacterAdapter extends RecyclerView.Adapter<CharacterAdapter.View
         private final ConstraintLayout constraintLayout;
 
 
-
-
         ViewHolder(View itemview) {
             super(itemview);
 
@@ -156,10 +125,6 @@ public class CharacterAdapter extends RecyclerView.Adapter<CharacterAdapter.View
             id = itemview.findViewById(R.id.numberTheId);
             species = itemview.findViewById(R.id.speciesMultChar);
             constraintLayout = itemview.findViewById(R.id.linearLayoutMultChar);
-
-
-//            itemview.setOnClickListener(view -> {
-//            });
 
         }
     }

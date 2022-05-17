@@ -75,13 +75,6 @@ public class CharacterRepository {
             }
         });
 
-
-//        try {
-//           Response<EpisodeResponse> response = call.execute();
-//            characterEpisode.setValue(response.body().getEpisode());
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
     }
 
     public String getIdFromUrl(String url) {

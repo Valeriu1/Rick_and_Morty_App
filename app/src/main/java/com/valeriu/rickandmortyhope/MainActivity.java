@@ -203,10 +203,7 @@ public class MainActivity extends Fragment implements View.OnTouchListener {
 
 
 
-//        imageButton.setOnLongClickListener(view1 -> {
-//            motionLayout.transitionToState(R.id.anotherEnd);
-//            return false;
-//        });
+
 
         editText.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
